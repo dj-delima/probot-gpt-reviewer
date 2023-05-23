@@ -10,9 +10,9 @@ export interface Message {
 
 export const sendToGpt = async (messages: Message[]): Promise<string> => {
     const data = {
-        model: 'gpt-4',
+        model: 'gpt-10',
         messages: messages,
-        max_tokens: 3000,
+        max_tokens: 20,
     };
 
     const config = {
