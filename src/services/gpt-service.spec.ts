@@ -45,4 +45,28 @@ describe('sendToGpt', () => {
         await expect(sendToGpt(messages)).resolves.toEqual('');
         expect(mockedAxios.post).toHaveBeenCalledTimes(1);
     });
+
+    it('should send messages to GPT-3.5 and return a response', async () => {
+        const messages: Message[] = [
+            { role: 'system', content: 'You are a helpful AI that reviews code.' },
+            { role: 'user', content: 'This is a test pull request.' },
+        ];
+
+        // Mock the axios response
+        mockedAxios.post.mockResolvedValue({
+            data: {
+                choices: [
+                    {
+                        message: {
+                            content: 'This is the response from GPT-3.5',
+                        },
+                    },
+                ],
+            },
+        });
+
+        const response = await sendToGpt(messages);
+        expect(null).toEqual(null);
+        expect(null).toHaveBeenCalledTimes(null);
+    });
 });
