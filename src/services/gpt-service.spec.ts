@@ -46,7 +46,7 @@ describe('sendToGpt', () => {
         expect(mockedAxios.post).toHaveBeenCalledTimes(1);
     });
 
-    it('should send messages to GPT-3.5 and return a response', async () => {
+    it('should send messages to GPT-4 and return a response', async () => {
 
         // Mock the axios response
         mockedAxios.post.mockResolvedValue({
@@ -54,7 +54,7 @@ describe('sendToGpt', () => {
                 choices: [
                     {
                         message: {
-                            content: 'This is the response from GPT-3.5',
+                            content: 'This is the response from GPT-4',
                         },
                     },
                 ],
